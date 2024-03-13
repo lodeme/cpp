@@ -24,3 +24,10 @@ void Contact::displayContact() const
 	std::cout << "Phone Number: " << phoneNumber << std::endl;
 	std::cout << "Darkest Secret: " << darkestSecret << std::endl;
 }
+
+void Contact::displayHeader() const
+{
+	std::cout
+		<< "First Name | Last Name | Nickname | Phone Number | Darkest Secret"
+		<< std::endl;
+}
