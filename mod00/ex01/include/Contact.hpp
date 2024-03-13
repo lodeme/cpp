@@ -13,9 +13,9 @@ class Contact {
 		std::string nickname;
 		std::string phoneNumber;
 		std::string darkestSecret;
-		std::time_t createdAt;
 
 	public:
+		std::time_t createdAt;
 		void setContact();
 		void displayFullContact() const;
 		void displayContactRow() const;

@@ -1,5 +1,16 @@
 #include "PhoneBook.hpp"
 
+int PhoneBook::getOldestContact() const
+{
+	int oldest = 0;
+	for (int i = 0; i < 7; i++)
+	{
+		if (contacts[i].createdAt < contacts[i + 1].createdAt)
+			oldest = i + 1;
+	}
+	return oldest;
+}
+
 void PhoneBook::addContact()
 {
 	int index = getOldestContact();
