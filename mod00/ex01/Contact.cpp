@@ -15,3 +15,12 @@ void Contact::setContact(void)
 	std::getline(std::cin, darkestSecret);
 	createdAt = std::time(0);
 }
+
+void Contact::displayContact() const
+{
+	std::cout << "First Name: " << firstName << std::endl;
+	std::cout << "Last Name: " << lastName << std::endl;
+	std::cout << "Nickname: " << nickname << std::endl;
+	std::cout << "Phone Number: " << phoneNumber << std::endl;
+	std::cout << "Darkest Secret: " << darkestSecret << std::endl;
+}
