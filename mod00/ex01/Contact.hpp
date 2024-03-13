@@ -1,6 +1,8 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
+#include <iostream>
+#include <iomanip>
 #include <string>
 #include <ctime>
 
@@ -15,8 +17,9 @@ class Contact {
 
 	public:
 		void setContact();
-		void displayContact() const;
-		void displayHeader() const;
+		void displayFullContact() const;
+		void displayContactRow() const;
+		
 };
 
 #endif
