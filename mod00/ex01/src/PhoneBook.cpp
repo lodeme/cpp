@@ -5,7 +5,7 @@ int PhoneBook::getOldestContact() const
 	int oldest = 0;
 	for (int i = 0; i < 7; i++)
 	{
-		if (contacts[i].createdAt < contacts[i + 1].createdAt)
+		if (contacts[i].createdAt > contacts[i + 1].createdAt)
 			oldest = i + 1;
 	}
 	return oldest;
@@ -20,11 +20,15 @@ void PhoneBook::addContact()
 void PhoneBook::displayHeader() const
 {
 	std::cout
+		<< std::setw(10) << "Index" << "|"
 		<< std::setw(10) << "First Name" << "|"
 		<< std::setw(10) << "Last Name" << "|"
 		<< std::setw(10) << "Nickname" << "|"
-		<< std::setw(10) << "Phone Number" << "|"
-		<< std::setw(10) << "Darkest Secret"
+		<< std::endl
+		<< std::string(10, '-') << "|"
+		<< std::string(10, '-') << "|"
+		<< std::string(10, '-') << "|"
+		<< std::string(10, '-') << "|"
 		<< std::endl;
 }
 
@@ -32,7 +36,7 @@ void PhoneBook::displayPhoneBook() const
 {
 	displayHeader();
 	for (int i = 0; i < 8; i++)
-		contacts[i].displayContactRow();
+		contacts[i].displayContactRow(i);
 }
 
 void PhoneBook::getSingleContact() const

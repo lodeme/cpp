@@ -17,6 +17,14 @@ void Contact::setContact(void)
 		<< std::endl;
 }
 
+std::string Contact::formatField(std::string str) const
+{
+	if (str.length() > 10)
+		return str.substr(0, 9) + ".";
+	else
+		return str;
+}
+
 void Contact::displayFullContact() const
 {
 	std::cout << "First Name: " << firstName << std::endl;
@@ -26,13 +34,12 @@ void Contact::displayFullContact() const
 	std::cout << "Darkest Secret: " << darkestSecret << std::endl;
 }
 
-void Contact::displayContactRow() const
+void Contact::displayContactRow(int id) const
 {
 	std::cout
-		<< std::setw(10) << firstName << "|"
-		<< std::setw(10) << lastName << "|"
-		<< std::setw(10) << nickname << "|"
-		<< std::setw(10) << phoneNumber << "|"
-		<< std::setw(10) << darkestSecret
+		<< std::setw(10) << id << "|"
+		<< std::setw(10) << formatField(firstName) << "|"
+		<< std::setw(10) << formatField(lastName) << "|"
+		<< std::setw(10) << formatField(nickname) << "|"
 		<< std::endl;
 }

@@ -7,7 +7,7 @@ int main(void)
 	while (1)
 	{
 		std::string command;
-		std::cout << "Enter a command (ADD, SEARCH or EXIT):";
+		std::cout << "Enter a command (ADD, SEARCH or EXIT): ";
 		std::getline(std::cin, command);
 		if (command == "ADD")
 			pb.addContact();
@@ -16,7 +16,7 @@ int main(void)
 		else if (command == "EXIT")
 			break;
 		else
-			std::cout << "Invalid command" << std::endl;
+			std::cout << "Invalid command: ";
 	}
 	return (EXIT_SUCCESS);
 }

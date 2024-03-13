@@ -13,6 +13,7 @@ class Contact {
 		std::string nickname;
 		std::string phoneNumber;
 		std::string darkestSecret;
+		std::string formatField(std::string) const;
 
 	public:
 		Contact():
@@ -25,7 +26,7 @@ class Contact {
 		std::time_t createdAt;
 		void setContact();
 		void displayFullContact() const;
-		void displayContactRow() const;
+		void displayContactRow(int id) const;
 };
 
 #endif
