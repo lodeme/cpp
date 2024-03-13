@@ -15,11 +15,17 @@ class Contact {
 		std::string darkestSecret;
 
 	public:
+		Contact():
+			firstName(""),
+			lastName(""),
+			nickname(""),
+			phoneNumber(""),
+			darkestSecret(""),
+			createdAt(std::time(0)) {}
 		std::time_t createdAt;
 		void setContact();
 		void displayFullContact() const;
 		void displayContactRow() const;
-		
 };
 
 #endif
