@@ -1,17 +1,25 @@
 #include "Contact.hpp"
 
+void promptFieldValue(std::string prompt, std::string& field)
+{
+	while (true)
+	{
+		std::cout << "Enter " << prompt << ": ";
+		std::getline(std::cin, field);
+		if (field.empty())
+			std::cout << "Cannot be empty: ";
+		else
+			break;
+	}
+}
+
 void Contact::setContact(void)
 {
-	std::cout << "Enter First Name: ";
-	std::getline(std::cin, firstName);
-	std::cout << "Enter Last Name: ";
-	std::getline(std::cin, lastName);
-	std::cout << "Enter Nickname: ";
-	std::getline(std::cin, nickname);
-	std::cout << "Enter Phone Number: ";
-	std::getline(std::cin, phoneNumber);
-	std::cout << "Enter Darkest Secret: ";
-	std::getline(std::cin, darkestSecret);
+	promptFieldValue("First Name", firstName);
+	promptFieldValue("Last Name", lastName);
+	promptFieldValue("Nickname", nickname);
+	promptFieldValue("Phone Number", phoneNumber);
+	promptFieldValue("Darkest Secret", darkestSecret);
 	createdAt = std::time(0);
 	std::cout << "Contact added: " << lastName << ", " << firstName 
 		<< std::endl;
