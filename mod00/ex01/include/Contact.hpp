@@ -14,6 +14,8 @@ class Contact {
 		std::string phoneNumber;
 		std::string darkestSecret;
 		std::string formatField(std::string) const;
+		bool isAscii(std::string str) const;
+		void promptFieldValue(std::string prompt, std::string& field);
 
 	public:
 		Contact():

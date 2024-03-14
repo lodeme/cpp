@@ -1,13 +1,25 @@
 #include "Contact.hpp"
 
-void promptFieldValue(std::string prompt, std::string& field)
+bool Contact::isAscii(std::string str) const
+{
+	for (size_t i = 0; i < str.size(); i++)
+	{
+		if ((unsigned char)(str[i]) > 127)
+			return false;
+	}
+	return true;
+}
+
+void Contact::promptFieldValue(std::string prompt, std::string& field)
 {
 	while (true)
 	{
 		std::cout << "Enter " << prompt << ": ";
 		std::getline(std::cin, field);
 		if (field.empty())
-			std::cout << "Cannot be empty: ";
+			std::cout << "Cannot be empty" << std::endl;
+		else if (!isAscii(field))
+			std::cout << "Only ASCII characters are allowed" << std::endl;
 		else
 			break;
 	}
