@@ -41,17 +41,18 @@ void PhoneBook::displayPhoneBook() const
 
 void PhoneBook::getSingleContact() const
 {
-	int input;
+	std::string input;
+	int id;
 	while (true)
 	{
 		std::cout << "Enter a contact number (0-7): ";
-		if (std::cin >> input && input >= 0 && input <= 7)
+		std::getline(std::cin, input);
+		std::stringstream ss(input);
+		if (ss >> id && ss.eof() && id >= 0 && id <= 7)
 			break ;
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max());
 		std::cout << "Incorrect value: ";
 	}
-	contacts[input].displayFullContact();
+	contacts[id].displayFullContact();
 }
 
 void PhoneBook::searchContact() const

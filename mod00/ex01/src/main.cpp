@@ -4,7 +4,7 @@
 int main(void)
 {
 	PhoneBook pb;
-	while (1)
+	while (true)
 	{
 		std::string command;
 		std::cout << "Enter a command (ADD, SEARCH or EXIT): ";
@@ -16,7 +16,8 @@ int main(void)
 		else if (command == "EXIT")
 			break;
 		else
-			std::cout << "Invalid command: ";
+			std::cout << "Invalid command";
+		std::cout << std::endl;
 	}
 	return (EXIT_SUCCESS);
 }
