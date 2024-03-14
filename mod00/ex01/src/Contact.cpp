@@ -15,7 +15,8 @@ void Contact::promptFieldValue(std::string prompt, std::string& field)
 	while (true)
 	{
 		std::cout << "Enter " << prompt << ": ";
-		std::getline(std::cin, field);
+		if (!std::getline(std::cin, field))
+			break;
 		if (field.empty())
 			std::cout << "Cannot be empty" << std::endl;
 		else if (!isAscii(field))

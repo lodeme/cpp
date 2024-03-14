@@ -8,8 +8,9 @@ int main(void)
 	{
 		std::string command;
 		std::cout << "Enter a command (ADD, SEARCH or EXIT): ";
-		std::getline(std::cin, command);
-		if (command == "ADD")
+		if (!std::getline(std::cin, command))
+			return (EXIT_FAILURE);
+		else if (command == "ADD")
 			pb.addContact();
 		else if (command == "SEARCH")
 			pb.searchContact();

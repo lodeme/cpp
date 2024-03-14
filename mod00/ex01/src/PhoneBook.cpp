@@ -46,7 +46,8 @@ void PhoneBook::getSingleContact() const
 	while (true)
 	{
 		std::cout << "Enter a contact number (0-7): ";
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			return ;
 		std::stringstream ss(input);
 		if (ss >> id && ss.eof() && id >= 0 && id <= 7)
 			break ;
