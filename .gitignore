@@ -2,3 +2,7 @@ mod00/ex00/megaphone
 .vscode/settings.json
 mod00/ex01/obj
 mod00/ex01/phonebook
+mod00/.DS_Store
+mod00/ex02/.DS_Store
+mod00/ex02/bankster
+*.o

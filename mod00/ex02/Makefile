@@ -19,4 +19,9 @@ $(OBJDIR)/%.o: src/%.cpp
 clean:
 	rm -rf $(OBJDIR) $(TARGET)
 
-.PHONY: all clean
+fclean: clean
+	rm -f $(TARGET)
+
+re: fclean all
+
+.PHONY: all clean fclean re
