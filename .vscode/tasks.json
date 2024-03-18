@@ -1,0 +1,26 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build mod00/ex02",
+			"type": "shell",
+			"command": "make -C mod00/ex02",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": {
+				"owner": "cpp",
+				"fileLocation": ["relative", "${workspaceFolder}/mod00/ex02"],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			}
+		}
+	]
+}

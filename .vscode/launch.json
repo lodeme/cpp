@@ -1,0 +1,18 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug mod00/ex02 with LLDB",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/mod00/ex02/bankster",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "lldb",
+			"preLaunchTask": "build mod00/ex02"
+		}
+	]
+}
