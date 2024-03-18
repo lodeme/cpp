@@ -1,6 +1,6 @@
 TARGET = bankster
 CXX = g++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -g
 OBJDIR = obj
 SOURCES =	src/Account.cpp \
 			src/tests.cpp
