@@ -6,3 +6,4 @@ mod00/.DS_Store
 mod00/ex02/.DS_Store
 mod00/ex02/bankster
 *.o
+mod00/ex02/src/ref_Account.cpp
