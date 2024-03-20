@@ -2,16 +2,18 @@ TARGET = bankster
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -g
 OBJDIR = obj
-SOURCES =	src/Account.cpp \
-			src/tests.cpp
+SOURCES = src/Account.cpp src/tests.cpp
 OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 
 all: $(TARGET)
 
-$(shell mkdir -p $(OBJDIR))
-
 $(TARGET): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(OBJECTS): | $(OBJDIR)
 
 $(OBJDIR)/%.o: src/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
