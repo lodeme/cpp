@@ -9,10 +9,13 @@ OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 
 all: $(TARGET)
 
-$(shell mkdir -p $(OBJDIR))
-
 $(TARGET): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(OBJECTS): | $(OBJDIR)
 
 $(OBJDIR)/%.o: src/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
