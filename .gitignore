@@ -8,3 +8,4 @@ mod00/ex02/bankster
 *.o
 mod00/ex02/src/ref_Account.cpp
 mod00/ex02/bankster.log
+mod01/ex00/zombie

@@ -1,0 +1,32 @@
+TARGET = zombie
+CXX = g++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -g
+OBJDIR = obj
+SOURCES =	src/main.cpp \
+			src/newZombie.cpp \
+			src/randomChump.cpp \
+			src/Zombie.cpp
+OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(OBJECTS): | $(OBJDIR)
+
+$(OBJDIR)/%.o: src/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	rm -rf $(OBJDIR) $(TARGET)
+
+fclean: clean
+	rm -f $(TARGET)
+
+re: fclean all
+
+.PHONY: all clean fclean re
