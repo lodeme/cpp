@@ -21,6 +21,27 @@
 					"message": 5
 				}
 			}
+		},
+		{
+			"label": "build mod01/ex01",
+			"type": "shell",
+			"command": "make -C mod01/ex01",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": {
+				"owner": "cpp",
+				"fileLocation": ["relative", "${workspaceFolder}/mod01/ex01"],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			}
 		}
 	]
 }

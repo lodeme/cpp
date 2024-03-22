@@ -13,6 +13,19 @@
 			"externalConsole": false,
 			"MIMode": "lldb",
 			"preLaunchTask": "build mod00/ex02"
+		},
+		{
+			"name": "Debug mod01/ex01 with GDB",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/mod01/ex01/zombie",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"preLaunchTask": "build mod01/ex01"
 		}
 	]
 }
