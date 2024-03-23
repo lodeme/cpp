@@ -1,10 +1,8 @@
-TARGET = zombie
+TARGET = pointers
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -g
 OBJDIR = obj
-SOURCES =	src/main.cpp \
-			src/Zombie.cpp \
-			src/zombieHorde.cpp
+SOURCES =	main.cpp
 OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 
 all: $(TARGET)

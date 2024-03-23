@@ -9,3 +9,7 @@ mod00/ex02/bankster
 mod00/ex02/src/ref_Account.cpp
 mod00/ex02/bankster.log
 mod01/ex01/zombie
+mod01/ex02/pointers.dSYM
+.DS_Store
+mod01/ex00/zombie
+mod01/ex02/pointers
