@@ -22,7 +22,7 @@ $(OBJDIR)/%.o: src/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJDIR) $(TARGET)
+	rm -rf $(OBJDIR)
 
 fclean: clean
 	rm -f $(TARGET)

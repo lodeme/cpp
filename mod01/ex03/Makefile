@@ -1,8 +1,11 @@
-TARGET = pointers
+TARGET = unnecessary
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -g
 OBJDIR = obj
-SOURCES =	main.cpp
+SOURCES =	src/main.cpp \
+			src/Weapon.cpp \
+			src/HumanA.cpp \
+			src/HumanB.cpp
 OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 
 all: $(TARGET)
