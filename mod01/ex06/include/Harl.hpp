@@ -9,6 +9,7 @@ class Harl {
 		void complain(std::string level);
 
 	private:
+		void formatMessage(std::string& prompt, void (Harl::*function)(void));
 		void debug(void);
 		void info(void);
 		void warning(void);

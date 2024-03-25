@@ -16,31 +16,32 @@ void Harl::error(void) {
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
+void Harl::formatMessage(std::string& prompt, void (Harl::*function)(void)) {
+	std::cout << "[ " << prompt << " ]" << std::endl;
+	(this->*function)();
+	std::cout << std::endl;
+}
+
 void Harl::complain(std::string level) {
-	void (Harl::*functions[4])(void) = {
-		&Harl::debug,
-		&Harl::info,
-		&Harl::warning,
-		&Harl::error
-	};
+	std::string prompts[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-	std::string levels[4] = {
-		"DEBUG",
-		"INFO",
-		"WARNING",
-		"ERROR"
-	};
-
-	for (int i = 0; i < 4; i++) {
-		if (level == levels[i]) {
-			for (int j = 0; j <= i; j++) {
-				std::cout << "[ " << levels[j] << " ]" << std::endl;
-				(this->*functions[j])();
-				std::cout << std::endl;
-			}
-			return;
-		}
+	int i = 0;
+	while (i < 4 && prompts[i].compare(level)) {
+		i++;
 	}
 
-	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	switch(i) {
+		case 0:
+			formatMessage(prompts[0], &Harl::debug); // fall through
+		case 1:
+			formatMessage(prompts[1], &Harl::info); // fall through
+		case 2:
+			formatMessage(prompts[2], &Harl::warning); // fall through
+		case 3:
+			formatMessage(prompts[3], &Harl::error);
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	}
+
 }
