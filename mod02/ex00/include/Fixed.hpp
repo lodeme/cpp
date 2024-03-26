@@ -9,12 +9,12 @@ class Fixed {
 		Fixed(const Fixed &other);
 		Fixed &operator=(const Fixed &other);
 		~Fixed(void);
-		int getRawBits(void);
+		int getRawBits(void) const;
 		void setRawBits(int const raw);
 
 	private:
-		int value;
-		static const int fractionalBits = 8;
+		int _value;
+		static const int _fractionalBits = 8;
 };
 
 #endif
