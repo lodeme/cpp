@@ -10,7 +10,7 @@ class Fixed {
 		Fixed(const int intValue);
 		Fixed(const float floatValue);
 		Fixed(const Fixed &other);
-		Fixed &operator=(const Fixed &other);
+		Fixed& operator=(const Fixed &other);
 		~Fixed(void);
 		float toFloat(void) const;
 		int toInt(void) const;
@@ -19,7 +19,9 @@ class Fixed {
 
 	private:
 		int _value;
-		static const int _fractionalBits = 8;
+		static const int _fractionalBits;
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fi);
 
 #endif
