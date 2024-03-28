@@ -21,7 +21,10 @@ class Fixed {
 		Fixed operator-(const Fixed& right) const;
 		Fixed operator*(const Fixed& right) const;
 		Fixed operator/(const Fixed& right) const;
-		
+		Fixed& operator++();
+		Fixed operator++(int);
+		Fixed& operator--();
+		Fixed operator--(int);
 		~Fixed(void);
 		float toFloat(void) const;
 		int toInt(void) const;

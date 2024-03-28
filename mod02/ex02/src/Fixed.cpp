@@ -3,7 +3,6 @@
 const int Fixed::_fractionalBits = 8;
 
 // Canonical Form
-
 Fixed::Fixed(void) : _value(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -26,13 +25,34 @@ Fixed::~Fixed(void) {
 }
 
 // Operator overloading
-
 Fixed& Fixed::operator=(const Fixed& other) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other) {
 		this->_value = other._value;
 	}
 	return *this;
+}
+
+Fixed& Fixed::operator++() {
+	++_value;
+	return *this;
+}
+
+Fixed Fixed::operator++(int) {
+	Fixed temp = *this;
+	++*this;
+	return temp;
+}
+
+Fixed& Fixed::operator--() {
+	--_value;
+	return *this;
+}
+
+Fixed Fixed::operator--(int) {
+	Fixed temp = *this;
+	--*this;
+	return temp;
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fi) {
@@ -82,8 +102,9 @@ Fixed Fixed::operator/(const Fixed& right) const {
 	return Fixed(this->_value / right._value);
 }
 
-// Other member functions
 
+
+// Other member functions
 int Fixed::toInt(void) const {
 	return _value >> _fractionalBits;
 }
