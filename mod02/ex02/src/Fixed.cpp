@@ -64,6 +64,24 @@ bool Fixed::operator!=(const Fixed& right) const {
 	return this->_value != right._value;
 }
 
+Fixed Fixed::operator+(const Fixed& right) const {
+	return Fixed(this->_value + right._value);
+}
+
+Fixed Fixed::operator-(const Fixed& right) const {
+	return Fixed(this->_value - right._value);
+}
+
+Fixed Fixed::operator*(const Fixed& right) const {
+	return Fixed(this->_value * right._value);
+}
+
+Fixed Fixed::operator/(const Fixed& right) const {
+	if (right._value == 0)
+		return (0);
+	return Fixed(this->_value / right._value);
+}
+
 // Other member functions
 
 int Fixed::toInt(void) const {

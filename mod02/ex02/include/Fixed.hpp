@@ -17,10 +17,10 @@ class Fixed {
 		bool operator<=(const Fixed& right) const;
 		bool operator==(const Fixed& right) const;
 		bool operator!=(const Fixed& right) const;
-		bool operator+(const Fixed& right) const;
-		bool operator-(const Fixed& right) const;
-		bool operator*(const Fixed& right) const;
-		bool operator/(const Fixed& right) const;
+		Fixed operator+(const Fixed& right) const;
+		Fixed operator-(const Fixed& right) const;
+		Fixed operator*(const Fixed& right) const;
+		Fixed operator/(const Fixed& right) const;
 		
 		~Fixed(void);
 		float toFloat(void) const;
