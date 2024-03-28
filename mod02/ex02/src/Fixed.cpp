@@ -78,7 +78,7 @@ Fixed Fixed::operator*(const Fixed& right) const {
 
 Fixed Fixed::operator/(const Fixed& right) const {
 	if (right._value == 0)
-		return (0);
+		throw std::runtime_error("Error: Division by zero");
 	return Fixed(this->_value / right._value);
 }
 
