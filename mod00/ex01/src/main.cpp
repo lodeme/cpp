@@ -9,7 +9,7 @@ int main(void)
 		std::string command;
 		std::cout << "Enter a command (ADD, SEARCH or EXIT): ";
 		if (!std::getline(std::cin, command))
-			return (EXIT_FAILURE);
+			return (1);
 		else if (command == "ADD")
 			pb.addContact();
 		else if (command == "SEARCH")
@@ -20,5 +20,5 @@ int main(void)
 			std::cout << "Invalid command";
 		std::cout << std::endl;
 	}
-	return (EXIT_SUCCESS);
+	return (0);
 }

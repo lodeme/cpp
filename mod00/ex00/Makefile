@@ -1,7 +1,29 @@
-CXX=c++
-CXXFLAGS=-Wall -Wextra -Werror -std=c++98
+TARGET = megaphone
+CXX = g++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -g
+OBJDIR = obj
+SOURCES =	src/megaphone.cpp
+OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 
-all: megaphone
+all: $(TARGET)
 
-megaphone: megaphone.cpp
-	$(CXX) $(CXXFLAGS) megaphone.cpp -o megaphone
+$(TARGET): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(OBJECTS): | $(OBJDIR)
+
+$(OBJDIR)/%.o: src/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	rm -rf $(OBJDIR) $(TARGET)
+
+fclean: clean
+	rm -f $(TARGET)
+
+re: fclean all
+
+.PHONY: all clean fclean re
