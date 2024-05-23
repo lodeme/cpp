@@ -26,3 +26,4 @@ mod00/ex00/compile_commands.json
 mod00/ex01/.cache/clangd/index
 mod00/ex01/compile_commands.json
 mod00/ex00/.cache/clangd/index
+.direnv
