@@ -1,4 +1,7 @@
 #include "PhoneBook.hpp"
+#include <iostream>
+#include <iomanip>
+#include <sstream>
 
 int PhoneBook::getOldestContact() const
 {

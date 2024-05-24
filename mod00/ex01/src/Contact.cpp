@@ -1,4 +1,6 @@
 #include "Contact.hpp"
+#include <iomanip>
+#include <iostream>
 
 bool Contact::isAscii(std::string str) const
 {
