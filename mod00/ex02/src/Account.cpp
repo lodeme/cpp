@@ -1,6 +1,5 @@
 #include "Account.hpp"
 #include <iostream>
-#include <cstdio>
 #include <ctime>
 
 int Account::_nbAccounts = 0;
@@ -20,6 +19,7 @@ void Account::_displayTimestamp(void)
 Account::Account(int deposit)
 {
 	_accountIndex = _nbAccounts;
+  _amount = 0;
 	_amount += deposit;
 	_totalAmount+= deposit;
 	_nbDeposits = 0;

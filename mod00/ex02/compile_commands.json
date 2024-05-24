@@ -1,0 +1,38 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c++98",
+      "-Iinclude",
+      "-g",
+      "-c",
+      "-o",
+      "obj/Account.o",
+      "src/Account.cpp"
+    ],
+    "directory": "/home/lodemetz/ft-code-external/cpp/mod00/ex02",
+    "file": "/home/lodemetz/ft-code-external/cpp/mod00/ex02/src/Account.cpp",
+    "output": "/home/lodemetz/ft-code-external/cpp/mod00/ex02/obj/Account.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c++98",
+      "-Iinclude",
+      "-g",
+      "-c",
+      "-o",
+      "obj/tests.o",
+      "src/tests.cpp"
+    ],
+    "directory": "/home/lodemetz/ft-code-external/cpp/mod00/ex02",
+    "file": "/home/lodemetz/ft-code-external/cpp/mod00/ex02/src/tests.cpp",
+    "output": "/home/lodemetz/ft-code-external/cpp/mod00/ex02/obj/tests.o"
+  }
+]
