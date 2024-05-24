@@ -14,5 +14,5 @@ int main (void) {
 	std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl;
 	std::cout << "Value pointed to by stringREF: " << stringREF << std::endl;
 
-	return EXIT_SUCCESS;
+	return 0;
 }
