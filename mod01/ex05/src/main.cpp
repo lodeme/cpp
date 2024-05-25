@@ -7,5 +7,5 @@ int main(void) {
 	harl.complain("WARNING");
 	harl.complain("ERROR");
 	harl.complain("N/A");
-	return EXIT_SUCCESS;
+	return 0;
 }
