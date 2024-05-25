@@ -1,7 +1,8 @@
 #include "HumanB.hpp"
+#include <iostream>
 
 HumanB::HumanB(std::string name) : _name(name) {
-	_weapon = nullptr;
+	_weapon = NULL;
 }
 
 void HumanB::setWeapon(Weapon* weapon) {
