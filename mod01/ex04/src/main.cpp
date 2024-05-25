@@ -14,13 +14,14 @@ int main(int argc, char **argv) {
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
 
-	std::ifstream inputFile(filename);
+	std::ifstream inputFile(filename.c_str());
 	if (!inputFile.is_open()) {
 		std::cerr << "Could not open input file" << std::endl;
 		return 1;
 	}
 
-	std::ofstream outputFile(filename + ".replace");
+  std::string outputFilename = filename + ".replace";
+	std::ofstream outputFile(outputFilename.c_str());
 	if (!outputFile.is_open()) {
 		std::cerr << "Could not open output file" << std::endl;
 		return 1;
