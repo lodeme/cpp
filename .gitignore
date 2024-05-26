@@ -38,3 +38,8 @@ mod01/ex04/.cache/clangd/index
 mod01/ex04/compile_commands.json
 mod01/ex05/.cache/clangd/index
 mod01/ex05/compile_commands.json
+mod01/ex06/compile_commands.json
+mod02/ex00/.cache/clangd/index
+mod02/ex00/compile_commands.json
+.cache
+compile_commands
