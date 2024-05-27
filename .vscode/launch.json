@@ -2,10 +2,10 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Debug mod00/ex02 with LLDB",
-			"type": "cppdbg",
+			"name": "Debug with LLDB",
+			"type": "lldb",
 			"request": "launch",
-			"program": "${workspaceFolder}/mod00/ex02/bankster",
+			"program": "${workspaceFolder}/mod02/ex02/fp8",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
@@ -14,18 +14,5 @@
 			"MIMode": "lldb",
 			"preLaunchTask": "build mod00/ex02"
 		},
-		{
-			"name": "Debug mod01/ex01 with GDB",
-			"type": "cppdbg",
-			"request": "launch",
-			"program": "${workspaceFolder}/mod01/ex01/zombie",
-			"args": [],
-			"stopAtEntry": false,
-			"cwd": "${workspaceFolder}",
-			"environment": [],
-			"externalConsole": false,
-			"MIMode": "gdb",
-			"preLaunchTask": "build mod01/ex01"
-		}
 	]
 }
