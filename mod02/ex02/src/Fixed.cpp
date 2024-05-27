@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+#include <cmath>
 
 const int Fixed::_fractionalBits = 8;
 
@@ -102,7 +103,30 @@ Fixed Fixed::operator/(const Fixed& right) const {
 	return Fixed(this->_value / right._value);
 }
 
+// min / max overloading
+Fixed& Fixed::min(Fixed& left, Fixed& right) {
+  if (left._value > right._value)
+    return right;
+  return left;
+};
 
+const Fixed& Fixed::min(const Fixed& left, const Fixed& right) {
+  if (left._value > right._value)
+    return right;
+  return left;
+};
+
+Fixed& Fixed::max(Fixed& left, Fixed& right) {
+  if (left._value > right._value)
+    return left;
+  return right;
+};
+
+const Fixed& Fixed::max(const Fixed& left, const Fixed& right) {
+  if (left._value > right._value)
+    return left;
+  return right;
+};
 
 // Other member functions
 int Fixed::toInt(void) const {
