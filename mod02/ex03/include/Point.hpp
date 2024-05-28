@@ -6,14 +6,16 @@
 class Point {
   public:
     Point(void);
-    Point(const Fixed& x, const Fixed&y);
+    Point(const Fixed& x, const Fixed& y);
     Point(const Point& other);
     Point& operator=(const Point& other);
     ~Point(void);
+    const Fixed& x(void) const;
+    const Fixed& y(void) const;
 
   private:
-    const Fixed _x;
-    const Fixed _y;
+    Fixed _x;
+    Fixed _y;
 };
 
-#endif // !DEBUG
+#endif

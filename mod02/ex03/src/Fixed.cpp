@@ -5,29 +5,23 @@ const int Fixed::_fractionalBits = 8;
 
 // Canonical Form
 Fixed::Fixed(void) : _value(0) {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int intValue) : _value(intValue << _fractionalBits) {
-	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float floatValue) : _value(roundf(floatValue * (1 << _fractionalBits))) {
-	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &other) {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
 Fixed::~Fixed(void) {
-	std::cout << "Destructor called" << std::endl;
 }
 
 // Operator overloading
 Fixed& Fixed::operator=(const Fixed& other) {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other) {
 		this->_value = other._value;
 	}
@@ -138,11 +132,9 @@ float Fixed::toFloat(void) const {
 }
 
 int Fixed::getRawBits(void) const {
-	std::cout << "getRawBits member function called" << std::endl;
 	return _value;
 }
 
 void Fixed::setRawBits(int const raw) {
-	std::cout << "setRawBits member function called" << std::endl;
 	_value = raw;
 }
