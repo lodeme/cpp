@@ -5,14 +5,26 @@
 			"name": "Debug with LLDB",
 			"type": "lldb",
 			"request": "launch",
-			"program": "${workspaceFolder}/mod02/ex02/fp8",
+			"program": "${workspaceFolder}/mod02/ex03/fp8",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [],
 			"externalConsole": false,
 			"MIMode": "lldb",
-			"preLaunchTask": "build mod00/ex02"
+		},
+		{
+			"name": "Debug with GDB",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/mod02/ex03/fp8",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"miDebuggerPath": "/nix/store/wjl553m0vxgnrcwhywph5nh3w86zb9cj-gdb-14.2/bin/gdb"
 		},
 	]
 }
