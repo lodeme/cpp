@@ -3,7 +3,13 @@
 #include "Point.hpp"
 
 float getPointOrientation(const Point& p, const Point& a, const Point& b) {
-  Fixed res = (p.x() - b.x()) * (a.y() - b.y()) - (a.x() - b.x()) * (p.y() - b.y());
+  float px = p.x().toFloat();
+  float py = p.y().toFloat();
+  float ax = a.x().toFloat();
+  float ay = a.y().toFloat();
+  float bx = b.x().toFloat();
+  float by = b.y().toFloat();
+  Fixed res = (px - bx) * (ay - by) - (ax - bx) * (py - by);
   return res.toFloat();
 }
 
@@ -22,7 +28,7 @@ int main( void ) {
     Point a(0, 0);
     Point b(5, 0);
     Point c(2.5f, 5);
-    Point p(2.5f, -1);
+    Point p(2.5f, 0.0f);
 
     if (bsp(a, b, c, p)) {
         std::cout << "Point is inside the triangle." << std::endl;
