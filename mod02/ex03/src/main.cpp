@@ -18,8 +18,8 @@ bool bsp(Point const a, Point const b, Point const c, Point const point) {
   float o2 = getPointOrientation(point, b, c);
   float o3 = getPointOrientation(point, c, a);
 
-  bool has_neg = (o1 < 0) || (o2 < 0) || (o3 < 0);
-  bool has_pos = (o1 > 0) || (o2 > 0) || (o3 > 0);
+  bool has_neg = (o1 <= 0) || (o2 <= 0) || (o3 <= 0);
+  bool has_pos = (o1 >= 0) || (o2 >= 0) || (o3 >= 0);
 
   return !(has_neg && has_pos);
 }
@@ -28,7 +28,7 @@ int main( void ) {
     Point a(0, 0);
     Point b(5, 0);
     Point c(2.5f, 5);
-    Point p(2.5f, 0.0f);
+    Point p(2.5f, 0.1f);
 
     if (bsp(a, b, c, p)) {
         std::cout << "Point is inside the triangle." << std::endl;
