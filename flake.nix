@@ -26,6 +26,7 @@
             doxygen
             bear
             valgrind
+            gdb
           ];
         };
       });
