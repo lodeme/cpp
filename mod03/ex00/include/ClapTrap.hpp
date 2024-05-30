@@ -14,6 +14,9 @@ class ClapTrap {
 
     // getters & setters
     std::string& getName(void);
+    unsigned int getHp(void);
+    unsigned int getEnergy(void);
+    unsigned int getAttack(void);
 
     // other functions
     void attack(const std::string& target);
