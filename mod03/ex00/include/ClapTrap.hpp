@@ -9,8 +9,11 @@ class ClapTrap {
     ClapTrap(void);
     ~ClapTrap(void);
     ClapTrap(const std::string& name);
-    ClapTrap(const ClapTrap& other);
-    ClapTrap& operator=(const ClapTrap& other);
+    ClapTrap(ClapTrap& other);
+    ClapTrap& operator=(ClapTrap& other);
+
+    // getters & setters
+    std::string& getName(void);
 
     // other functions
     void attack(const std::string& target);
