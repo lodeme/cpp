@@ -1,5 +1,5 @@
 TARGET = scavtrap
-CXX = g++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -g
 OBJDIR = obj
 SOURCES =	src/main.cpp \

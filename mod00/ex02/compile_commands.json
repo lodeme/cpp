@@ -1,7 +1,7 @@
 [
   {
     "arguments": [
-      "/usr/bin/g++",
+      "/usr/bin/c++",
       "-Wall",
       "-Wextra",
       "-Werror",
@@ -19,7 +19,7 @@
   },
   {
     "arguments": [
-      "/usr/bin/g++",
+      "/usr/bin/c++",
       "-Wall",
       "-Wextra",
       "-Werror",
