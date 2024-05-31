@@ -21,10 +21,6 @@ class ScavTrap: public ClapTrap {
     void guardGate(void);
 
   private:
-    std::string   _name;
-    unsigned int  _hp;
-    unsigned int  _energy;
-    unsigned int  _attack;
     bool          _gkMode;
 };
 

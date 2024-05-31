@@ -36,26 +36,26 @@ bool ScavTrap::getGkMode(void) {
 
 // Other Public Functions
 void ScavTrap::attack(const std::string& target) {
-  if (_energy > 0 && _hp > 0) {
-    _energy--;
-    std::cout  << "ScavTrap " << _name
+  if (getEnergy() > 0 && getHp() > 0) {
+    setEnergy(-1);
+    std::cout  << "ScavTrap " << getName()
               << " attacks " << target
-              << ", causing " << _attack << " points of damage!"
+              << ", causing " << getAttack() << " points of damage!"
               << std::endl;
   } else {
-    std::cout   << "ScavTrap " << _name
+    std::cout   << "ScavTrap " << getName()
                 << " cannot attack: insufficient hit points or energy." << std::endl;
   }
 }
 
 void ScavTrap::guardGate(void) {
-  if (_energy > 0 && _hp > 0) {
+  if (getEnergy() > 0 && getHp() > 0) {
     _gkMode = true;
-    std::cout << "ScavTrap " << _name
+    std::cout << "ScavTrap " << getName()
               << " is guarding gate."
               << std::endl;
   } else {
-    std::cout << "ScavTrap " << _name
+    std::cout << "ScavTrap " << getName()
               << " cannot guard gate: insufficient hit points or energy."
               << std::endl;
   }

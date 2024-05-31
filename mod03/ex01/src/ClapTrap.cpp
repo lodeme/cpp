@@ -49,6 +49,10 @@ unsigned int ClapTrap::getAttack(void) {
   return _attack;
 }
 
+void ClapTrap::setEnergy(int change) {
+  _energy += change;
+}
+
 // Other Public Functions
 void ClapTrap::attack(const std::string& target) {
   if (_energy > 0 && _hp > 0) {

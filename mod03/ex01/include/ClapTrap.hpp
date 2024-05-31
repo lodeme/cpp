@@ -17,6 +17,7 @@ class ClapTrap {
     unsigned int getHp(void);
     unsigned int getEnergy(void);
     unsigned int getAttack(void);
+    void setEnergy(int);
 
     // other functions
     void attack(const std::string& target);
