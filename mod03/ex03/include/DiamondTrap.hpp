@@ -2,11 +2,10 @@
 #define DIAMOND_TRAP_HPP
 
 #include <string>
-#include "ClapTrap.hpp"
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-class DiamondTrap: public ClapTrap, public ScavTrap, public FragTrap {
+class DiamondTrap: public ScavTrap, public FragTrap {
   public:
     // canonical
     DiamondTrap(void);
@@ -23,6 +22,7 @@ class DiamondTrap: public ClapTrap, public ScavTrap, public FragTrap {
 
   private:
     std::string _name;
+    
 };
 
 #endif

@@ -11,11 +11,14 @@ void DiamondLifecycle(DiamondTrap diamond) {
   diamond.beRepaired(3);
   diamond.attack(target);
   diamond.highFivesGuys();
+  diamond.guardGate();
   diamond.takeDamage(10);
   diamond.takeDamage(200);
   diamond.beRepaired(5);
   diamond.attack(target);
   diamond.highFivesGuys();
+  diamond.guardGate();
+  diamond.whoAmI();
 }
 
 int main(void) {

@@ -5,6 +5,7 @@ OBJDIR = obj
 SOURCES =	src/main.cpp \
 					src/ClapTrap.cpp \
 					src/FragTrap.cpp \
+					src/ScavTrap.cpp \
 					src/DiamondTrap.cpp
 OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 

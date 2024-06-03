@@ -3,7 +3,7 @@
 
 // Canonical Form
 ClapTrap::ClapTrap(void)
-  : _name("John Doe"), _hp(100), _energy(100), _attack(30) {
+  : _name("John Doe"), _hp(100), _energy(50), _attack(30) {
   std::cout << "Default ClapTrap constructor called." << std::endl;
 }
 
@@ -12,7 +12,7 @@ ClapTrap::~ClapTrap(void) {
 }
 
 ClapTrap::ClapTrap(const std::string& name)
-  : _name(name), _hp(100), _energy(100), _attack(30) {
+  : _name(name), _hp(100), _energy(50), _attack(30) {
   std::cout << "ClapTrap Named constructor called." << std::endl;
 }
 

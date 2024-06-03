@@ -4,7 +4,7 @@
 #include <string>
 #include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap {
+class ScavTrap: public virtual ClapTrap {
   public:
     // canonical
     ScavTrap(void);
@@ -20,7 +20,7 @@ class ScavTrap: public ClapTrap {
     void attack(const std::string& target);
     void guardGate(void);
 
-  private:
+  protected:
     bool          _gkMode;
 };
 
