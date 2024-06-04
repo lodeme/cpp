@@ -1,6 +1,8 @@
 #include "Zombie.hpp"
 #include <iostream>
 
+Zombie::Zombie(void) : _name("Default") {}
+
 Zombie::Zombie(std::string name) {
 	_name = name;
 }
