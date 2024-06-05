@@ -5,7 +5,7 @@ Cat::Cat(void) : _type("Cat") {}
 
 Cat::~Cat(void) {}
 
-const std::string& Cat::getType(void) {
+const std::string& Cat::getType(void) const {
   return _type;
 }
 

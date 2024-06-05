@@ -9,6 +9,6 @@ class Cat : public Animal {
     Cat(void);
     ~Cat(void);
 
-    const std::string& getType(void);
+    const std::string& getType(void) const;
     void makeSound(void) const;
 };

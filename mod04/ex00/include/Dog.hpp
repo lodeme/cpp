@@ -9,7 +9,7 @@ class Dog : public Animal {
     Dog(void);
     ~Dog(void);
 
-    const std::string& getType(void);
+    const std::string& getType(void) const;
     void makeSound(void) const;
 };
 

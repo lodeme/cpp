@@ -5,7 +5,7 @@ Dog::Dog(void) : _type("Dog") {}
 
 Dog::~Dog(void) {}
 
-const std::string& Dog::getType(void) {
+const std::string& Dog::getType(void) const {
   return _type;
 }
 
