@@ -10,10 +10,6 @@ Cat::~Cat(void) {
   std::cout << "Cat destroyed of type " << _type << std::endl;
 }
 
-Cat::Cat(const std::string& type): Animal(), _type(type) {
-  std::cout << "Cat created with custom constructor of type " << _type << std::endl;
-}
-
 Cat::Cat(const Cat& other): Animal(other) {
   this->_type = other._type;
   std::cout << "Cat created with copy constructor of type " << _type << std::endl;

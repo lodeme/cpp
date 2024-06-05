@@ -10,10 +10,6 @@ Animal::~Animal(void) {
   std::cout << "Animal destroyed of type " << _type << std::endl;
 }
 
-Animal::Animal(const std::string& type) : _type(type) {
-  std::cout << "Animal created with custom constructor of type " << _type << std::endl;
-}
-
 Animal::Animal(const Animal& other) {
   this->_type = other._type;
   std::cout << "Animal created with copy constructor of type " << _type << std::endl;
