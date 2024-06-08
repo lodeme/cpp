@@ -7,22 +7,19 @@
 int main(void) {
 
   // Animals array creation
-  unsigned int n = 3;
-  Animal* animals[n];
+  unsigned int n = 7;
+  Animal* animals = new Animal[n];
 
   for (unsigned int i = 0; i < n; i++) {
     std::cout << "Creating Animal number " << i << std::endl;
     if (i < n / 2) {
-      animals[i] = new Dog();
+      animals[i] = Dog();
     } else {
-      animals[i] = new Cat();
+      animals[i] = Cat();
     }
   }
 
-  for (unsigned int i = 0; i < n; i++) {
-    std::cout << "Destroying Animal number " << i << std::endl;
-    delete animals[i];
-  }
+  delete[] animals;
 
   // Deep copy testing
     Cat kitty;

@@ -8,7 +8,7 @@ int main(void) {
 
   // Animals array creation
   unsigned int n = 3;
-  Animal* animals[n];
+  Animal** animals = new Animal*[n];
 
   for (unsigned int i = 0; i < n; i++) {
     std::cout << "Creating Animal number " << i << std::endl;
@@ -23,6 +23,8 @@ int main(void) {
     std::cout << "Destroying Animal number " << i << std::endl;
     delete animals[i];
   }
+
+  delete[] animals;
 
   // Virtual Class Testing
   // Animal test;
