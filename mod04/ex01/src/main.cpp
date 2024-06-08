@@ -2,21 +2,42 @@
 #include <Animal.hpp>
 #include <Cat.hpp>
 #include <Dog.hpp>
+#include <iostream>
 
 int main(void) {
-  const Animal* meta = new Animal();
-  const Animal* j = new Dog();
-  const Animal* i = new Cat();
 
-  std::cout << j->getType() << " " << std::endl;
-  std::cout << i->getType() << " " << std::endl;
+  // Animals array creation
+  unsigned int n = 3;
+  Animal* animals[n];
 
-  i->makeSound(); //will output the cat sound!
-  j->makeSound();
-  meta->makeSound();
+  for (unsigned int i = 0; i < n; i++) {
+    std::cout << "Creating Animal number " << i << std::endl;
+    if (i < n / 2) {
+      animals[i] = new Dog();
+    } else {
+      animals[i] = new Cat();
+    }
+  }
 
-  delete meta;
-  delete j;
-  delete i;
+  for (unsigned int i = 0; i < n; i++) {
+    std::cout << "Destroying Animal number " << i << std::endl;
+    delete animals[i];
+  }
+
+  // Deep copy testing
+    Cat kitty;
+    Cat furball = kitty;  // Calls the copy constructor
+
+    std::cout << "Original data: " << kitty.getType() << std::endl;
+    std::cout << "Copy data: " << furball.getType() << std::endl;
+
+    // Modify original
+    std::string newstr = "Tiger";
+    kitty.setType(newstr);
+
+    std::cout << "After modifying original:" << std::endl;
+    std::cout << "Original data: " << kitty.getType() << std::endl;
+    std::cout << "Copy data: " << furball.getType() << std::endl;
+
   return 0;
 }

@@ -31,6 +31,10 @@ const std::string& Cat::getType(void) const {
   return _type;
 }
 
+void Cat::setType(std::string& type) {
+  _type = type;
+}
+
 void Cat::makeSound(void) const {
   std::cout << "The cat is meowing" << std::endl;
 }

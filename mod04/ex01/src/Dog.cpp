@@ -32,6 +32,10 @@ const std::string& Dog::getType(void) const {
   return _type;
 }
 
+void Dog::setType(std::string& type) {
+  _type = type;
+}
+
 void Dog::makeSound(void) const {
   std::cout << "The dog is barking" << std::endl;
 }

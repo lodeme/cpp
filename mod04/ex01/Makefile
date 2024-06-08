@@ -6,6 +6,7 @@ SOURCES =	src/main.cpp \
 					src/Animal.cpp \
 					src/Cat.cpp \
 					src/Dog.cpp \
+					src/Brain.cpp \
 					src/main.cpp
 OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 
