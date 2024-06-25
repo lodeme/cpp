@@ -2,7 +2,7 @@ TARGET = bureaucrat
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -g
 OBJDIR = obj
-SOURCES =	src/main.cpp
+SOURCES =	src/Bureaucrat.cpp
 OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 
 all: $(TARGET)

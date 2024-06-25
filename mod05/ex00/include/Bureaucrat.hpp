@@ -6,8 +6,15 @@ class Bureaucrat {
     int _grade;
 
   public:
+    // canonical form
     Bureaucrat(void);
     ~Bureaucrat(void);
-    Bureaucrat(std::string& name, int grade);
+    Bureaucrat(const std::string& name, int grade);
     Bureaucrat& operator=(const Bureaucrat& other);
+  
+    // getters and setters
+    const std::string& getName(void) const;
+    int getGrade(void) const;
+    void incrementGrade(void);
+    void decrementGrade(void);
 };
