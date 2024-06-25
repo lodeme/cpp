@@ -1,4 +1,5 @@
 #include <Bureaucrat.hpp>
+#include <bits/std_thread.h>
 #include <iostream>
 
 Bureaucrat::Bureaucrat(void): _name("Default"), _grade(75) {};
@@ -6,20 +7,15 @@ Bureaucrat::Bureaucrat(void): _name("Default"), _grade(75) {};
 Bureaucrat::~Bureaucrat(void) {};
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade):
-  _name(name) {
-  try {
-    if (grade < 1 || grade > 150) {
-      throw 1;
-    }
-    _grade = grade;
-  } catch (int e) {
-    std::cerr << "Could not create bureaucrat: grade must be between 1 and 150" << std::endl;
-  }
+  _name(name), _grade(grade) {
+  if (grade < 1)
+    throw GradeTooHighException();
+  if (grade > 150)
+    throw GradeTooLowException();
 };
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
   if (this != &other) {
-    /* this->_name = other._name; */
     this->_grade = other._grade;
   }
   return *this;
@@ -34,26 +30,26 @@ int Bureaucrat::getGrade(void) const {
 }
 
 void Bureaucrat::incrementGrade(void) {
-  try {
-    if (_grade - 1 < 1) {
-      throw 1;
-    }
-    _grade--;
-  }
-  catch (int e) {
-    std::cerr << "Cannot increment grade: it is already 1" << std::endl;
-  }
+  _grade--;
+  if (_grade < 1)
+    throw GradeTooHighException();
 }
 
 void Bureaucrat::decrementGrade(void) {
-  try {
-    if (_grade + 1 > 150) {
-      throw 1;
-    }
-    _grade++;
-  }
-  catch (int e) {
-    std::cerr << "Cannot decrement grade: it is already 150" << std::endl;
-  }
+  _grade++;
+  if (_grade > 150)
+    throw GradeTooLowException();
+}
+
+const char* Bureaucrat::GradeTooHighException::what(void) const throw() {
+  return "Grade cannot be better than 1";
+}
+
+const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
+  return "Grade cannot be worse than 150";
+}
+
+std::ostream &operator<<(std::ostream &str, Bureaucrat const &b) {
+  return str << b.getName() << ", bureaucrat grade " << b.getGrade();
 }
 
