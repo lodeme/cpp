@@ -3,7 +3,8 @@
 class Zombie
 {
 	public:
-		Zombie(std::string name = "");
+    Zombie(void);
+		Zombie(std::string);
 		~Zombie(void);
 		void announce(void) const;
 		void changeName(std::string newName);
