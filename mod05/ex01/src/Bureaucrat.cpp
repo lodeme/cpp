@@ -1,5 +1,5 @@
-#include <Bureaucrat.hpp>
-#include <bits/std_thread.h>
+#include "Bureaucrat.hpp"
+#include <BureaucratForm.hpp>
 #include <iostream>
 
 Bureaucrat::Bureaucrat(void): _name("Default"), _grade(75) {};
@@ -51,5 +51,20 @@ const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
 
 std::ostream &operator<<(std::ostream &str, Bureaucrat const &b) {
   return str << b.getName() << ", bureaucrat grade " << b.getGrade();
+}
+
+void Bureaucrat::signForm(Form& f) {
+  try {
+    f.beSigned(*this);
+  } catch (Form::gradeTooLowException &e) {
+    std::cout
+        << _name << " couldn't sign form " 
+        << f.getName() << " because "
+        << e.what() << std::endl;
+    return;
+  }
+  std::cout
+    << _name << " signed "
+    << f.getName() << std::endl;
 }
 

@@ -1,4 +1,9 @@
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
+
 #include <string>
+
+class Form;
 
 class Bureaucrat {
   private:
@@ -28,6 +33,11 @@ class Bureaucrat {
       public:
         virtual const char* what(void) const throw();
     };
+
+  // Other functions
+  void signForm(Form& f);
 };
 
 std::ostream &operator<<(std::ostream &str, Bureaucrat const &b);
+
+#endif

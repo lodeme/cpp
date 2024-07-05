@@ -1,6 +1,11 @@
+#ifndef FORM_HPP
+#define FORM_HPP
+
 #include <exception>
 #include <ostream>
 #include <string>
+
+class Bureaucrat;
 
 class Form {
   private:
@@ -13,7 +18,7 @@ class Form {
     // canonical form
     Form();
     ~Form();
-    Form(std::string& name, int gradeToSign, int gradeToExecute);
+    Form(const std::string& name, int gradeToSign, int gradeToExecute);
     Form& operator=(Form& other);
 
     // getters and setters
@@ -32,6 +37,11 @@ class Form {
       public:
         virtual const char* what() const throw();
     };
+
+    // Other member funtions
+    void beSigned(Bureaucrat& b);
 };
 
 std::ostream& operator<<(std::ostream& str, Form& form);
+
+#endif
