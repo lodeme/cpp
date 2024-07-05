@@ -3,7 +3,7 @@
 
 #include <string>
 
-class Form;
+class AForm;
 
 class Bureaucrat {
   private:
@@ -36,7 +36,7 @@ class Bureaucrat {
     };
 
   // Other functions
-  void signForm(Form& f);
+  void signForm(AForm& f);
 };
 
 std::ostream &operator<<(std::ostream &str, Bureaucrat const &b);

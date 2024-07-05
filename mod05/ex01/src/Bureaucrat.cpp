@@ -25,6 +25,10 @@ const std::string& Bureaucrat::getName(void) const {
   return _name;
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat& other)
+  :_name(other._name), _grade(other._grade) {
+}
+
 int Bureaucrat::getGrade(void) const {
   return _grade;
 }

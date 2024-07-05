@@ -11,6 +11,7 @@ class Bureaucrat {
     ~Bureaucrat(void);
     Bureaucrat(const std::string& name, int grade);
     Bureaucrat& operator=(const Bureaucrat& other);
+    Bureaucrat(Bureaucrat& other);
   
     // getters and setters
     const std::string& getName(void) const;

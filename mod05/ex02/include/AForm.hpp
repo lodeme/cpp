@@ -7,7 +7,7 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
   private:
     const std::string _name;
     bool _signed;
@@ -16,11 +16,11 @@ class Form {
 
   public:
     // canonical form
-    Form();
-    ~Form();
-    Form(const std::string& name, int gradeToSign, int gradeToExecute);
-    Form& operator=(Form& other);
-    Form(const Form&other);
+    AForm();
+    ~AForm();
+    AForm(const std::string& name, int gradeToSign, int gradeToExecute);
+    AForm& operator=(AForm& other);
+    AForm(const AForm& other);
 
     // getters and setters
     const std::string& getName();
@@ -40,9 +40,9 @@ class Form {
     };
 
     // Other member funtions
-    void beSigned(Bureaucrat& b);
+    virtual void beSigned(Bureaucrat& b) = 0;
 };
 
-std::ostream& operator<<(std::ostream& str, Form& form);
+std::ostream& operator<<(std::ostream& str, AForm& form);
 
 #endif

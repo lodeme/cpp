@@ -1,4 +1,5 @@
-#include <Bureaucrat.hpp>
+#include "Bureaucrat.hpp"
+#include <BureaucratForm.hpp>
 #include <iostream>
 
 Bureaucrat::Bureaucrat(void): _name("Default"), _grade(75) {};
@@ -20,8 +21,8 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
   return *this;
 };
 
-Bureaucrat::Bureaucrat(Bureaucrat& other) 
-  :_name(other._name), _grade(other._grade) {
+Bureaucrat::Bureaucrat(const Bureaucrat& other)
+  : _name(other._name), _grade(other._grade) {
 }
 
 const std::string& Bureaucrat::getName(void) const {
@@ -54,5 +55,20 @@ const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
 
 std::ostream &operator<<(std::ostream &str, Bureaucrat const &b) {
   return str << b.getName() << ", bureaucrat grade " << b.getGrade();
+}
+
+void Bureaucrat::signForm(AForm& f) {
+  try {
+    f.beSigned(*this);
+  } catch (AForm::gradeTooLowException &e) {
+    std::cout
+        << _name << " couldn't sign form " 
+        << f.getName() << " because "
+        << e.what() << std::endl;
+    return;
+  }
+  std::cout
+    << _name << " signed "
+    << f.getName() << std::endl;
 }
 
