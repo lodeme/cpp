@@ -5,7 +5,8 @@ OBJDIR = obj
 SOURCES =	src/Bureaucrat.cpp \
 					src/main.cpp \
 					src/AForm.cpp \
-					src/ShrubberyCreationForm.cpp
+					src/ShrubberyCreationForm.cpp\
+					src/RobotomyRequestForm.cpp
 OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 
 all: $(TARGET)
