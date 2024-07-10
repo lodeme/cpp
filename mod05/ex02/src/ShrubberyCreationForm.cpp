@@ -1,5 +1,6 @@
-#include "ShrubberyCreationForm.hpp"
-#include <ofstream>
+#include <BureaucratForm.hpp>
+#include <ShrubberyCreationForm.hpp>
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm()
   : AForm("ShrubberyCreationForm", 145, 137), _target("Default") {
@@ -15,7 +16,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
   : AForm(other), _target(other._target) {
 }
 
-ShrubberyCreationForm& operator=(ShrubberyCreationForm& other) {
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm& other) {
   (void)other;
   return *this;
 }

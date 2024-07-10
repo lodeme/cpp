@@ -24,9 +24,9 @@ class AForm {
 
     // getters and setters
     const std::string& getName() const;
-    bool getIsSigned();
-    int getGradeToSign();
-    int getGradeToExecute();
+    bool getIsSigned() const;
+    int getGradeToSign() const;
+    int getGradeToExecute() const;
 
     // exceptions
     class gradeTooHighException: public std::exception {

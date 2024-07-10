@@ -28,15 +28,15 @@ const std::string& AForm::getName() const {
   return _name;
 }
 
-bool AForm::getIsSigned() {
+bool AForm::getIsSigned() const {
   return _signed;
 }
 
-int AForm::getGradeToSign() {
+int AForm::getGradeToSign() const {
   return _gradeToSign;
 }
 
-int AForm::getGradeToExecute() {
+int AForm::getGradeToExecute() const {
   return _gradeToExecute;
 }
 

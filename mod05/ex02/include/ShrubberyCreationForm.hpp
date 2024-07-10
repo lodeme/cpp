@@ -15,9 +15,9 @@ class ShrubberyCreationForm : public AForm {
     ShrubberyCreationForm(const std::string& target);
     ShrubberyCreationForm& operator=(ShrubberyCreationForm& other);
     ShrubberyCreationForm(const ShrubberyCreationForm& other);
-};
 
     // other
     void execute(const Bureaucrat& bureaucrat) const;
+};
 
 #endif

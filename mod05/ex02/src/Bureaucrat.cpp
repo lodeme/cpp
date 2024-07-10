@@ -1,4 +1,3 @@
-#include "Bureaucrat.hpp"
 #include <BureaucratForm.hpp>
 #include <exception>
 #include <iostream>
