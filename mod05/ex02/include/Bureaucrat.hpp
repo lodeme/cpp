@@ -37,6 +37,7 @@ class Bureaucrat {
 
   // Other functions
   void signForm(AForm& f);
+  void executeForm(AForm const & form) const ;
 };
 
 std::ostream &operator<<(std::ostream &str, Bureaucrat const &b);

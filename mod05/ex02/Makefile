@@ -4,7 +4,8 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -g
 OBJDIR = obj
 SOURCES =	src/Bureaucrat.cpp \
 					src/main.cpp \
-					src/AForm.cpp
+					src/AForm.cpp \
+					src/ShrubberyCreationForm.cpp
 OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 
 all: $(TARGET)

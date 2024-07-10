@@ -23,7 +23,7 @@ class AForm {
     AForm(const AForm& other);
 
     // getters and setters
-    const std::string& getName();
+    const std::string& getName() const;
     bool getIsSigned();
     int getGradeToSign();
     int getGradeToExecute();
@@ -39,8 +39,14 @@ class AForm {
         virtual const char* what() const throw();
     };
 
+    class formNotSignedException: public std::exception {
+      public:
+        virtual const char* what() const throw();
+    };
+
     // Other member funtions
-    virtual void beSigned(Bureaucrat& b) = 0;
+    virtual void beSigned(Bureaucrat& b);
+    virtual void execute(const Bureaucrat& bureaucrat) const = 0;
 };
 
 std::ostream& operator<<(std::ostream& str, AForm& form);

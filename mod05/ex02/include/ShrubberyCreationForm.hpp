@@ -1,22 +1,23 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef SC_FORM_HPP
+#define SC_FORM_HPP
 
-#include <exception>
-#include <ostream>
 #include <string>
+#include <AForm.hpp>
 
-class Bureaucrat;
-
-class AForm {
+class ShrubberyCreationForm : public AForm {
   private:
     const std::string _target;
 
   public:
     // canonical form
-    AForm();
-    ~AForm();
-    AForm(const std::string& name, int gradeToSign, int gradeToExecute);
-    AForm& operator=(AForm& other);
+    ShrubberyCreationForm();
+    ~ShrubberyCreationForm();
+    ShrubberyCreationForm(const std::string& target);
+    ShrubberyCreationForm& operator=(ShrubberyCreationForm& other);
+    ShrubberyCreationForm(const ShrubberyCreationForm& other);
 };
+
+    // other
+    void execute(const Bureaucrat& bureaucrat) const;
 
 #endif

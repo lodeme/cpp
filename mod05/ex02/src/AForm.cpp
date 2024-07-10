@@ -24,7 +24,7 @@ AForm::AForm(const AForm& other)
   : _name(other._name), _signed(other._signed), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute) {
 }
 
-const std::string& AForm::getName() {
+const std::string& AForm::getName() const {
   return _name;
 }
 
@@ -46,6 +46,10 @@ const char* AForm::gradeTooHighException::what() const throw() {
 
 const char* AForm::gradeTooLowException::what() const throw() {
   return "Grade is too low to proceed";
+}
+
+const char* AForm::formNotSignedException::what() const throw() {
+  return "Form is not signed";
 }
 
 std::ostream& operator<<(std::ostream& str, AForm& form) {
