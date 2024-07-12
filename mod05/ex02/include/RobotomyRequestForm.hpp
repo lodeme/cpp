@@ -19,6 +19,7 @@ class RobotomyRequestForm : public AForm {
     // other
     void execute(const Bureaucrat& bureaucrat) const;
     bool flipCoin() const;
+    void seedGenerator();
 };
 
 #endif

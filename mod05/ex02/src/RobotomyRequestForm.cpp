@@ -1,21 +1,24 @@
 #include <BureaucratForm.hpp>
 #include <RobotomyRequestForm.hpp>
 #include <iostream>
-#include <random>
 #include <ctime>
+#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm()
   : AForm("RobotomyRequestForm", 72, 45), _target("Default") {
+  seedGenerator();
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
   : AForm("RobotomyRequestForm", 72, 45), _target(target) {
+  seedGenerator();
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
   : AForm(other), _target(other._target) {
+  seedGenerator();
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm& other) {
@@ -23,9 +26,12 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm& other) 
   return *this;
 }
 
+void RobotomyRequestForm::seedGenerator() {
+  srand(static_cast<unsigned int>(std::time(0)));
+}
+
 bool RobotomyRequestForm::flipCoin() const {
-  static std::mt19937 generator(std::time(0));
-  return generator() % 2 == 0;
+  return std::rand() % 2 == 0;
 }
 
 void RobotomyRequestForm::execute(const Bureaucrat& bureaucrat) const {

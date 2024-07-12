@@ -26,7 +26,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat& bureaucrat) const {
     throw formNotSignedException();
   if (bureaucrat.getGrade() > getGradeToExecute())
     throw gradeTooLowException();
-  std::ofstream file(getName() + "_shrubbery");
+  std::string filename = getName() + "_shrubbery";
+  std::ofstream file(filename.c_str());
   file << "      /||" << std::endl;
   file << "     |||||" << std::endl;
   file << "     |||||" << std::endl;
