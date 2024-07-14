@@ -7,12 +7,12 @@ enum inferredType {
   INT,
   FLOAT,
   DOUBLE,
-  ERROR,
 };
 
 class ScalarConverter {
   private:
     // Type inference
+    static bool isChar(std::string& literal);
     static bool isInt(std::string& literal);
     static bool isFloat(std::string& literal);
     static bool isDouble(std::string& literal);

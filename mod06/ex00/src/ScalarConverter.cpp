@@ -1,4 +1,5 @@
 #include <ScalarConverter.hpp>
+#include <cctype>
 #include <iostream>
 #include <climits>
 #include <cerrno>
@@ -19,44 +20,66 @@ ScalarConverter::ScalarConverter(ScalarConverter& other) {
 }
 
 // Type inference
+bool ScalarConverter::isChar(std::string& literal) {
+  if (literal.length() == 1 &&
+    literal[0] >= 0 && literal[0] <= 127 &&
+    std::isdigit(literal[0])
+  )
+    return true;
+  return false;
+}
 
 bool ScalarConverter::isInt(std::string& literal) {
-  return false;
+  size_t i = 0;
+  if (literal[i] == '-' || literal[i] == '+')
+    i++;
+  return literal.find_first_not_of("0123456789", i) == std::string::npos;
 }
 
 bool ScalarConverter::isFloat(std::string& literal) {
-  return false;
+  if (literal == "nanf" || literal == "+inff" || literal == "-inff")
+    return true;
+  if (literal.back() == 'f')
+      return false;
+  return isDouble(literal);
 }
 
 bool ScalarConverter::isDouble(std::string& literal) {
-  return false;
+  if (literal == "nan" || literal == "+inf" || literal == "-inf")
+    return true;
+  
+  size_t i = 0;
+  if (literal[i] == '-' || literal[i] == '+')
+    i++;
+
+  bool hasDigits = false;
+  bool hasDecimalPoint = false;
+
+  for (; i < literal.length(); i++) {
+    if (std::isdigit(literal[i]))
+      hasDigits = true;
+    else if (literal[i] == '.' && !hasDecimalPoint)
+      hasDecimalPoint = true;
+    else
+      return false;
+  }
+
+  return hasDigits;
 }
 
 inferredType ScalarConverter::inferType(std::string& literal) {
   if (literal.empty())
-    return ERROR;
-
-  if (literal.length() == 1 &&
-    literal[0] >= 0 && literal[0] <= 127 &&
-    (literal[0] < '0' || literal[0] > '9'))
+    throw std::invalid_argument("Input cannot be empty");
+  if (isChar(literal))
     return CHAR;
-
-  if (literal == "nanf" || literal == "+inff" || literal == "-inff")
-    return FLOAT;
-
-  if (literal == "nan" || literal == "+inf" || literal == "-inf")
-    return DOUBLE;
-
   if (isInt(literal))
     return INT;
-
   if (isFloat(literal))
-      return FLOAT;
-
+    return FLOAT;
   if (isDouble(literal))
     return DOUBLE;
 
-  return ERROR;
+  throw std::invalid_argument("Literal type could not be inferred");
 }
 
 // Conversions
@@ -98,8 +121,15 @@ void ScalarConverter::convert(std::string& literal) {
       printConversions(static_cast<double>(i));
       break;
     }
-    case ERROR: {
-      std::cout << "Error: type conversion failed" << std::endl;
+    case FLOAT: {
+      int f = toFloat(literal);
+      printConversions(static_cast<double>(f));
+      break;
+    }
+    case DOUBLE: {
+      double d = toDouble(literal);
+      printConversions(d);
+      break;
     }
   }
 }
