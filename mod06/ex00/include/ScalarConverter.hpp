@@ -4,19 +4,28 @@
 
 enum inferredType {
   CHAR,
+  INT,
+  FLOAT,
+  DOUBLE,
   ERROR,
 };
 
 class ScalarConverter {
   private:
     // Type inference
+    static bool isInt(std::string& literal);
+    static bool isFloat(std::string& literal);
+    static bool isDouble(std::string& literal);
     static inferredType inferType(std::string& literal);
  
     // Type conversion
     static char toChar(std::string& literal);
+    static int toInt(std::string& literal);
+    static float toFloat(std::string& literal);
+    static double toDouble(std::string& literal);
   
     // Display
-    static void printConversions();
+    static void printConversions(double d);
 
   public:
     // Canonical Form
