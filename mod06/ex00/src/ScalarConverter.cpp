@@ -171,8 +171,31 @@ void ScalarConverter::convert(std::string& literal) {
 
 // Display
 void ScalarConverter::printConversions(double d) {
-  std::cout << "char: " << (std::isprint(static_cast<int>(d)) ? ("'" + std::string(1, static_cast<char>(d)) + "'") : "Non displayable")  << std::endl;
-  std::cout << "int: " << static_cast<int>(d) << std::endl;
-  std::cout << "float: " << static_cast<float>(d) << std::endl;
-  std::cout << "double: " << d << std::endl;
+  std::cout << "char: "
+    << (std::isprint(static_cast<int>(d))
+    ? ("'" + std::string(1, static_cast<char>(d)) + "'")
+    : std::isnan(d) || std::isinf(d) || d > 127 || d < 0
+    ? "impossible"
+    : "non displayable")
+    << std::endl;
+
+  std::cout << "int: ";
+  if (d < std::numeric_limits<int>::min() || d > std::numeric_limits<int>::max() || std::isnan(d) || std::isinf(d))
+    std::cout << "impossible" << std::endl;
+  else
+    std::cout << static_cast<int>(d) << std::endl;
+
+  std::cout << "float: ";
+  if (d > std::numeric_limits<float>::max() || d < -std::numeric_limits<float>::max())
+    std::cout << "impossible" << std::endl;
+  else if (abs(d - std::round(d)) > 0.0f || isinf(d) || isnan(d))
+    std::cout << static_cast<float>(d) << "f" << std::endl;
+  else
+    std::cout << static_cast<float>(d) << ".0f" << std::endl;
+
+  std::cout << "double: ";
+  if (abs(d - std::round(d)) > 0.0 ||isinf(d) || isnan(d))
+    std::cout << d << std::endl;
+  else
+    std::cout << d << ".0" << std::endl;
 }
