@@ -121,7 +121,7 @@ float ScalarConverter::toFloat(std::string& literal) {
   if (*end != '\0')
     throw std::invalid_argument("Number could not be converted to a float");
 
-  return static_cast<float>(result);
+  return result;
 }
 
 double ScalarConverter::toDouble(std::string& literal) {
@@ -134,14 +134,14 @@ double ScalarConverter::toDouble(std::string& literal) {
 
   errno = 0;
   char *end;
-  float result = strtod(literal.c_str(), &end);
+  double result = strtod(literal.c_str(), &end);
 
   if (errno == ERANGE)
     throw std::out_of_range("Out of double range");
   if (*end != '\0')
     throw std::invalid_argument("Number could not be converted to a double");
 
-  return static_cast<double>(result);
+  return result;
 }
 
 void ScalarConverter::convert(std::string& literal) {
@@ -157,7 +157,7 @@ void ScalarConverter::convert(std::string& literal) {
       break;
     }
     case FLOAT: {
-      int f = toFloat(literal);
+      float f = toFloat(literal);
       printConversions(static_cast<double>(f));
       break;
     }
