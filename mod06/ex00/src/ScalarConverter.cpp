@@ -1,5 +1,6 @@
 #include <ScalarConverter.hpp>
 #include <cctype>
+#include <exception>
 #include <iostream>
 #include <climits>
 #include <cerrno>
@@ -34,6 +35,11 @@ bool ScalarConverter::isInt(std::string& literal) {
   size_t i = 0;
   if (literal[i] == '-' || literal[i] == '+')
     i++;
+  try {
+    toInt(literal);
+  } catch (std::exception& e) {
+    return false;
+  }
   return literal.find_first_not_of("0123456789", i) == std::string::npos;
 }
 
@@ -186,7 +192,7 @@ void ScalarConverter::printConversions(double d) {
     std::cout << static_cast<int>(d) << std::endl;
 
   std::cout << "float: ";
-  if (d > std::numeric_limits<float>::max() || d < -std::numeric_limits<float>::max())
+  if ((d > std::numeric_limits<float>::max() || d < -std::numeric_limits<float>::max()) && !(std::isnan(d) || std::isinf(d)))
     std::cout << "impossible" << std::endl;
   else if (abs(d - std::round(d)) > 0.0f || isinf(d) || isnan(d))
     std::cout << static_cast<float>(d) << "f" << std::endl;
