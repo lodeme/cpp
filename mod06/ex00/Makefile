@@ -1,4 +1,4 @@
-TARGET = converter
+TARGET = convert
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -g
 OBJDIR = obj
