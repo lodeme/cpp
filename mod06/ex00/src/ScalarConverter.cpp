@@ -7,20 +7,6 @@
 #include <limits>
 #include <stdexcept>
 
-// Canonical Form
-ScalarConverter::ScalarConverter() {}
-
-ScalarConverter::~ScalarConverter() {}
-
-ScalarConverter& ScalarConverter::operator=(ScalarConverter& other) {
-  (void)other;
-  return *this;
-}
-
-ScalarConverter::ScalarConverter(ScalarConverter& other) {
-  *this = other;
-}
-
 // Type inference
 bool ScalarConverter::isChar(std::string& literal) {
   if (literal.length() == 1 &&

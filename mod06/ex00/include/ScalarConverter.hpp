@@ -11,6 +11,9 @@ enum inferredType {
 
 class ScalarConverter {
   private:
+    // Private constructor for non instantiable class
+    ScalarConverter();
+
     // Type inference
     static bool isChar(std::string& literal);
     static bool isInt(std::string& literal);
@@ -28,12 +31,6 @@ class ScalarConverter {
     static void printConversions(double d);
 
   public:
-    // Canonical Form
-    ScalarConverter();
-    virtual ~ScalarConverter() = 0;
-    ScalarConverter& operator=(ScalarConverter& other);
-    ScalarConverter(ScalarConverter& other);
-
     // Type conversion
     static void convert(std::string& literal);
 };
