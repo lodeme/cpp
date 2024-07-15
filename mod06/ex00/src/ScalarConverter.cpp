@@ -42,6 +42,7 @@ bool ScalarConverter::isFloat(std::string& literal) {
     return true;
   if (literal.back() != 'f')
       return false;
+  literal.pop_back();
   return isDouble(literal);
 }
 
