@@ -24,7 +24,7 @@ ScalarConverter::ScalarConverter(ScalarConverter& other) {
 bool ScalarConverter::isChar(std::string& literal) {
   if (literal.length() == 1 &&
     literal[0] >= 0 && literal[0] <= 127 &&
-    std::isdigit(literal[0])
+    !std::isdigit(literal[0])
   )
     return true;
   return false;
@@ -42,8 +42,8 @@ bool ScalarConverter::isFloat(std::string& literal) {
     return true;
   if (literal.back() != 'f')
       return false;
-  literal.pop_back();
-  return isDouble(literal);
+  std::string truncFloat = literal.substr(0, literal.size() - 1);
+  return isDouble(truncFloat);
 }
 
 bool ScalarConverter::isDouble(std::string& literal) {
@@ -118,7 +118,7 @@ float ScalarConverter::toFloat(std::string& literal) {
 
   if (errno == ERANGE)
     throw std::out_of_range("Out of float range");
-  if (*end != '\0')
+  if (*end != 'f')
     throw std::invalid_argument("Number could not be converted to a float");
 
   return result;
@@ -171,7 +171,7 @@ void ScalarConverter::convert(std::string& literal) {
 
 // Display
 void ScalarConverter::printConversions(double d) {
-  std::cout << "char: " << static_cast<char>(d) << std::endl;
+  std::cout << "char: " << (std::isprint(static_cast<int>(d)) ? ("'" + std::string(1, static_cast<char>(d)) + "'") : "Non displayable")  << std::endl;
   std::cout << "int: " << static_cast<int>(d) << std::endl;
   std::cout << "float: " << static_cast<float>(d) << std::endl;
   std::cout << "double: " << d << std::endl;
