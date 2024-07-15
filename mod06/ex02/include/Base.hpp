@@ -5,9 +5,9 @@ class Base {
     virtual ~Base();
 };
 
-class A: Base {};
-class B: Base {};
-class C: Base {};
+class A: public Base {};
+class B: public Base {};
+class C: public Base {};
 
 Base* generate();
 void identify(Base* p);
