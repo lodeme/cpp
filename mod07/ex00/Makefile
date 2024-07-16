@@ -1,9 +1,8 @@
-TARGET = base
+TARGET = swap
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -g
 OBJDIR = obj
-SOURCES =	src/Base.cpp \
-					src/main.cpp
+SOURCES =	src/main.cpp
 OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 
 all: $(TARGET)
