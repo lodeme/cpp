@@ -1,7 +1,7 @@
 #include <iostream>
 #include <Array.hpp>
 
-#define MAX_VAL 750
+#define MAX_VAL 10
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -13,11 +13,13 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
-    //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-    }
+
+    Array<int> tmp = numbers;
+    Array<int> test(tmp);
+
+    numbers.printArr();
+    tmp.printArr();
+    test.printArr();
 
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -48,6 +50,11 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
+
+    numbers.printArr();
+    tmp.printArr();
+    test.printArr();
+
     delete [] mirror;//
     return 0;
 }
