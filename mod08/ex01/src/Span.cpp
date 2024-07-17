@@ -56,5 +56,14 @@ unsigned int Span::shortestSpan() {
 }
 
 void Span::fillAll() {
+  static bool seeded = false;
+  if (!seeded) {
+    std::srand(static_cast<unsigned int>(std::time(0)));
+    seeded = true;
+  }
 
+  _vec.clear();
+  _vec.resize(_size);
+  std::generate(_vec.begin(), _vec.end(), std::rand);
 }
+
