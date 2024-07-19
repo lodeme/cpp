@@ -1,8 +1,9 @@
-TARGET = bcx
+TARGET = btc
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -g
 OBJDIR = obj
-SOURCES =	src/main.cpp
+SOURCES =	src/main.cpp \
+					src/BitcoinExchange.cpp
 OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 
 all: $(TARGET)
