@@ -14,6 +14,7 @@ class PmergeMe {
   public:
     // orthodox canonical form
     PmergeMe();
+    PmergeMe(int argc, char** argv);
     PmergeMe(const PmergeMe& other);
     PmergeMe& operator=(const PmergeMe& other);
     ~PmergeMe();
