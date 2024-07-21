@@ -6,6 +6,7 @@
 
 class PmergeMe {
   private:
+    std::list<int> _numbersInput;
     std::list<int> _list;
     std::vector<int> _vector;
     std::clock_t _listTime;
@@ -20,8 +21,9 @@ class PmergeMe {
     ~PmergeMe();
 
     // private functions
-    void FordJohnsonList();
-    void FordJohsonVector();
+    void parseInput(int argc, char** argv);
+    void FordJohnsonListSort();
+    void FordJohsonVectorSort();
     void sort();
     void displayResults();
 };
