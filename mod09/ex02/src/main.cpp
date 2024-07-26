@@ -1,18 +1,31 @@
-#include <PmergeMe.hpp>
-#include <exception>
-#include <iostream>
+#include "PmergeMe.hpp"
 
 int main(int argc, char** argv) {
-  if (argc < 2) {
-    std::cout << "Usage: " << argv[0] << " space_separated_positive_ints" << std::endl;
-    return 1;
-  }
-  try {
-    PmergeMe fjs(argc, argv);
-    fjs.sort();
-    fjs.displayResults();
-  } catch(std::exception& e) {
-    std::cout << "Error: " << e.what() << std::endl;
-  }
-  return 0;
+
+    if (argc < 2) {
+        std::cout << "Usage: " << argv[0] << " <positive integer sequence>" << std::endl;
+        return 1;
+    }
+
+    try {
+        PmergeMe<std::vector<int> > v(argv + 1);
+
+        std::cout << "Before:\t";
+        v.print_data();
+
+        v.sort();
+
+        PmergeMe<std::deque<int> > dq(argv + 1);
+        dq.sort();
+
+        std::cout << "After:\t";
+        dq.print_data();
+
+        v.benchmark();
+        dq.benchmark();
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
+
+    return 0;
 }
